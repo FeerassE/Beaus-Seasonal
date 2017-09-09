@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import $ from 'jquery';
+import {Switch, Router, Router} from 'react-router-dom';
 
 import TitleBar from './components/TitleBar';
 import BeerList from './components/BeerList';
@@ -16,7 +17,7 @@ class App extends Component {
       data: [],
       beer: [],
       store: [],
-      page:[]
+      page: []
     }
     this.onBeerSelect = this.onBeerSelect.bind(this)
   }
@@ -28,8 +29,9 @@ class App extends Component {
     }).catch(error => {
       console.log(error);
     })
-  }
 
+
+  }
   // componentWillMount(){
   //   axios.get(`http://localhost:8080/beer/store/${beer_id}`).then((res) => {
   //     this.setState({store: res});
@@ -38,7 +40,6 @@ class App extends Component {
   //     console.log(error);
   //   })
   // }
-
     onBeerSelect(beer, e){
      let beer_id = beer.id;
      this.setState({beer: beer});
@@ -57,10 +58,10 @@ class App extends Component {
         <BeerList 
         onBeerSelect={this.onBeerSelect}
         beer={this.state.data} />
-        {/* <BeerPage 
+        <BeerPage 
         store={this.state.store}
         beer={this.state.beer}
-        /> */}
+        />
 
       </div>
     );
