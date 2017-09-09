@@ -2,7 +2,7 @@ import React from 'react';
 import BeerListItem from './BeerListItem.js';
 
 const BeerList = (props) => {
-    const beerItems = props.beer.map((beer) => {
+    const beerItems = props.beers.map((beer) => {
         return (
             <BeerListItem 
             onBeerSelect= {props.onBeerSelect}

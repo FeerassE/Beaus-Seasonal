@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import $ from 'jquery';
-import {Switch, Router, Router} from 'react-router-dom';
+import {Switch, Router} from 'react-router-dom';
 
 import TitleBar from './components/TitleBar';
 import BeerList from './components/BeerList';
@@ -51,17 +51,18 @@ class App extends Component {
      })
    }
 
+
   render() {
     return (
       <div className="App">
         <TitleBar />
         <BeerList 
         onBeerSelect={this.onBeerSelect}
-        beer={this.state.data} />
-        <BeerPage 
+        beers={this.state.data} />
+        {/* <BeerPage 
         store={this.state.store}
         beer={this.state.beer}
-        />
+        /> */}
 
       </div>
     );
