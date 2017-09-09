@@ -10,7 +10,7 @@ const BeerListItem = ({beer, onBeerSelect}) => {
     if(imageUrl == null){
         return (
             <li onClick={() => onBeerSelect(beer)} className= 'list-beer-item-img col-xs-12 col-md-3'>
-                <Link to={`/beer/${beerName}`}>
+                {/* <Link to={`/beer/${beerName}`}> */}
                     <div className='box-unavailable'>
                         <p> {beerName}</p>
                     </div>
@@ -18,14 +18,14 @@ const BeerListItem = ({beer, onBeerSelect}) => {
                     <p>{tertiaryCategory}</p>
                     <p>{style}</p>
                     <p>{varietal}</p>
-                </Link>
+                {/* </Link> */}
             </li>
         )
     }
     else {
     return(
         <li onClick={() => onBeerSelect(beer)} className= 'list-beer-item col-xs-12 col-md-3'>
-            <Link to={`/beer/${beerName}`}>
+            {/* <Link to={`/beer/${beerName}`}> */}
                 <img className="media-object" src={imageUrl}/>
                 <div>
                     <h3>{beerName}</h3>
@@ -33,7 +33,7 @@ const BeerListItem = ({beer, onBeerSelect}) => {
                     <p>{style}</p>
                     <p>{varietal}</p>
                 </div>
-            </Link>
+            {/* </Link> */}
         </li>
         )
     }

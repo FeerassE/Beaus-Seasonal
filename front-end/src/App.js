@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {
       data: [],
       beer: [],
-      store: []
+      store: [],
+      page:[]
     }
     this.onBeerSelect = this.onBeerSelect.bind(this)
   }
@@ -27,9 +28,16 @@ class App extends Component {
     }).catch(error => {
       console.log(error);
     })
-
-
   }
+
+  // componentWillMount(){
+  //   axios.get(`http://localhost:8080/beer/store/${beer_id}`).then((res) => {
+  //     this.setState({store: res});
+  //     console.log(this.state);
+  //   }).catch(error => {
+  //     console.log(error);
+  //   })
+  // }
 
     onBeerSelect(beer, e){
      let beer_id = beer.id;
@@ -49,10 +57,10 @@ class App extends Component {
         <BeerList 
         onBeerSelect={this.onBeerSelect}
         beer={this.state.data} />
-        <BeerPage 
+        {/* <BeerPage 
         store={this.state.store}
         beer={this.state.beer}
-        />
+        /> */}
 
       </div>
     );
