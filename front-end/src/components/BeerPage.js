@@ -11,7 +11,7 @@ import axios from 'axios';
   // }
 
 
-class NewBeerPage extends Component{ 
+class BeerPage extends Component{ 
     constructor(props){
         super(props);
         this.state = {
@@ -54,4 +54,4 @@ class NewBeerPage extends Component{
     }
 }
 
-export default NewBeerPage;
+export default BeerPage;
