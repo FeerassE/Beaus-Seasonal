@@ -27,8 +27,16 @@ app.listen(8080, ()=> {
 
 app.get('/beer/store/:product_id', (req,res) => {
   let product_id = req.params.product_id;
-  console.log(product_id);
+  console.log("this is the product id for the call to lcbo store:" + product_id);
   request(`https://lcboapi.com/stores?product_id=${product_id}&access_key=${apiKey}`, (error, response, body) => {
+    res.send(body)
+  })
+})
+
+app.get('/beer/:id', (req,res) => {
+  let id = req.params.id;
+  console.log("this is the id for just the product:" + id);
+  request(`https://lcboapi.com/products/${id}?access_key=${apiKey}`, (error, response, body) =>{
     res.send(body)
   })
 })
