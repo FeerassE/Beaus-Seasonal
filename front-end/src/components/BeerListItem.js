@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+
+// Component for individual catalogue item
 const BeerListItem = ({beer, onBeerSelect}) => {
     const imageUrl = beer.image_thumb_url;
     const beerName = beer.name;
@@ -8,9 +10,11 @@ const BeerListItem = ({beer, onBeerSelect}) => {
     const varietal = beer.varietal;
     const tertiaryCategory= beer.tertiary_category;
     const beerId = beer.id;
+
+    // No image available
     if(imageUrl == null){
         return (
-            <li onClick={() => onBeerSelect(beer)} className= 'list-beer-item-img col-xs-12 col-md-3'>
+            <li className= 'list-beer-item-img col-xs-12 col-md-3'>
                 <Link to={`/beer/${beerId}`}>
                     <div className='box-unavailable'>
                         <p> {beerName}</p>
@@ -24,9 +28,10 @@ const BeerListItem = ({beer, onBeerSelect}) => {
             </li>
         )
     }
+    // Image available
     else {
     return(
-        <li onClick={() => onBeerSelect(beer)} className= 'list-beer-item col-xs-12 col-md-3'>
+        <li className= 'list-beer-item col-xs-12 col-md-3'>
             <Link to={`/beer/${beerId}`}>
                 <img className="media-object" src={imageUrl}/>
                 <div>

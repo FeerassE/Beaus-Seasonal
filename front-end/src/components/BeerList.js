@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import BeerListItem from './BeerListItem.js';
 import axios from 'axios';
 
-
+// The catalogue of beers. 
 class BeerList extends Component{
 
     state = {
@@ -18,18 +18,7 @@ class BeerList extends Component{
             })
     }
 
-    onBeerSelect(beer, e){
-        let beer_id = beer.id;
-        this.setState({beer: beer});
-        axios.get(`http://localhost:8080/beer/store/${beer_id}`).then((res) => {
-          this.setState({store: res});
-          console.log(this.state);
-        }).catch(error => {
-          console.log(error);
-        })
-      }
-
-
+    // Creates a block of list items by passing each beers data element to the BeerListItem component
     beerItems = () =>{
         return(
             this.state.beers.map( beer => {
@@ -54,7 +43,6 @@ class BeerList extends Component{
                         {this.beerItems()}
                     </ul>
                 </div>
-                {/* <NewBeerPage beer={this.state.beer} /> */}
         </div>
         )
     }

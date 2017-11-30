@@ -1,16 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-  // componentWillMount(){
-  //   axios.get(`http://localhost:8080/beer/store/${beer_id}`).then((res) => {
-  //     this.setState({store: res});
-  //     console.log(this.state);
-  //   }).catch(error => {
-  //     console.log(error);
-  //   })
-  // }
-
-
+// Individual Product Page featuring Store info
 class BeerPage extends Component{ 
     constructor(props){
         super(props);
@@ -20,6 +11,7 @@ class BeerPage extends Component{
         }
     }
     
+// Store data and product data added before mounting
 
       componentWillMount(){
             let id = this.props.match.params.id;

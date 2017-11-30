@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-// import axios from 'axios';
-import {Switch, Router} from 'react-router-dom';
 
 import TitleBar from './components/TitleBar';
 import Main from './components/Main.js';

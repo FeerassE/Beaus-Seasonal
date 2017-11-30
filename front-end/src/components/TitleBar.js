@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
+// The nav bar
 const TitleBar = () => {
     return (
             <nav className="navbar navbar-default fixed-top">
