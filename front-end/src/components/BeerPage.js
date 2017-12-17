@@ -14,14 +14,15 @@ class BeerPage extends Component{
 // Store data and product data added before mounting
 
       componentWillMount(){
+            const domain = process.env.REACT_APP_DOMAIN || 'localhost:8080'
             let id = this.props.match.params.id;
             console.log(id);
-            axios.get(`http://localhost:8080/beer/store/${id}`).then((res) => {
+            axios.get(`http://${domain}/beer/store/${id}`).then((res) => {
             this.setState({stores: res.data.result});
             console.log(this.state.stores);
             }).catch(error => {
             console.log(error);
-            }).then(axios.get(`http://localhost:8080/beer/${id}`).then((res) => {
+            }).then(axios.get(`http://${domain}/beer/${id}`).then((res) => {
                 this.setState({beer: res.data.result});
                 console.log("beer data:");
                 console.log(this.state.beer);

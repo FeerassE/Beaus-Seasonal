@@ -10,9 +10,11 @@ class BeerList extends Component{
         store: [],
     }
     componentWillMount(){
-        axios.get('http://localhost:8080').then((res) => {
+        const domain = process.env.REACT_APP_DOMAIN || 'localhost:8080'
+        axios.get(`http://${domain}`).then((res) => {
             this.setState({beers: res.data.result});
             console.log(this.state.beers);
+            console.log(domain);
             }).catch(error => {
             console.log(error);
             })
