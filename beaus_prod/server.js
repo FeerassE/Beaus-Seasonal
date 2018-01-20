@@ -8,13 +8,15 @@ const cors = require('cors')
  
 const apiKey = 'MDo2NGY4MDgzMi04OWQ3LTExZTctOWM0OS1mN2VkOWI0NDI4MjU6a09uZFhqQU9DZ2YweDBiZGFoZ1JOSlVFT0o3SmVGeTB1b3kx';
 
+const port = process.env.PORT || 8080; 
+
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, 'front_end/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 // Gets and queries an object of Beau's seasonal products 
-app.get('/', (req, res) => {
+app.get('/beerlist', (req, res) => {
   request(`https://lcboapi.com/products?where=is_seasonal&where_not=is_dead,is_discontinued&q=beaus+all+natural&access_key=${apiKey}`, (error, response, body) => {
     res.send(body)
   })
@@ -39,10 +41,10 @@ app.get('/beer/:id', (req,res) => {
 })
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/front_end/build/index.html'));
+  res.sendFile(path.join(__dirname+ '/client/build/index.html'));
 });
 
 
-app.listen(8080, ()=> {
+app.listen(port, ()=> {
   console.log('Im listening.')
 })
